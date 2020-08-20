@@ -1,5 +1,3 @@
-console.log("hi");
-
 function bannerComponent() {
   const banner = document.createElement("div");
   banner.innerHTML = "Created by Zvi Karp";
@@ -51,17 +49,29 @@ function converterComponent() {
 }
 
 function injectComponent() {
-  console.log("h2");
   const searchRes = document.getElementById("rso");
   searchRes.prepend(converterComponent());
 }
 
+function getSearch() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const searchText = urlParams.get("q");
+  return searchText;
+}
+
+function run() {
+  const searchText = getSearch();
+  if (searchText === "timestamp") {
+    injectComponent();
+  }
+}
+
 if (window.document.readyState === "complete") {
-  injectComponent();
+  run();
 }
 
 window.document.onreadystatechange = function () {
   if (document.readyState === "complete") {
-    injectComponent();
+    run();
   }
 };
