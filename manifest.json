@@ -3,11 +3,13 @@
   "version": "0.1",
   "description": "timestamp <-> datetime converter in your search results",
   "manifest_version": 2,
+  "permissions": ["clipboardWrite"],
   "content_scripts": [
     {
       "matches": ["*://www.google.com/search*"],
       "js": [
         "lib/validation.js",
+        "lib/clipboard.js",
         "lib/components.js",
         "lib/parseSearch.js",
         "main.js"
