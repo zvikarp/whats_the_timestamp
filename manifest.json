@@ -1,0 +1,12 @@
+{
+  "name": "what's the timestamp",
+  "version": "0.1",
+  "description": "timestamp <-> datetime converter in your search results",
+  "manifest_version": 2,
+  "content_scripts": [
+    {
+      "matches": ["*://www.google.com/search*"],
+      "js": ["main.js"]
+    }
+  ]
+}
