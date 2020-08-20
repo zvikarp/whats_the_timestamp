@@ -6,7 +6,12 @@
   "content_scripts": [
     {
       "matches": ["*://www.google.com/search*"],
-      "js": ["components.js", "parseSearch.js", "main.js"]
+      "js": [
+        "lib/validation.js",
+        "lib/components.js",
+        "lib/parseSearch.js",
+        "main.js"
+      ]
     }
   ]
 }

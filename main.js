@@ -1,23 +1,26 @@
 const searchTextComponents = {
   timestamp_now: renderTimestampComponent,
   dateTime_now: renderDatetimeComponent,
+  convert_timestamp: renderDatetimeComponent,
 };
 
 function injectComponent(component) {
-  const searchRes = document.getElementById("rso");
-  searchRes.prepend(component);
+  const searchRes =
+    document.getElementById("rso") || document.getElementById("res");
+  if (searchRes) searchRes.prepend(component);
 }
 
 function getSearch() {
   const urlParams = new URLSearchParams(window.location.search);
   const encodedSearchText = urlParams.get("q") || "";
-  const searchCode = searchTextToCode(encodedSearchText);
-  return searchCode;
+  return searchTextToCode(encodedSearchText);
 }
 
 function run() {
-  const searchCode = getSearch();
-  if (searchCode) injectComponent(searchTextComponents[searchCode]());
+  const { parserFunc, parserResult } = getSearch() || {};
+  if (parserFunc) {
+    injectComponent(searchTextComponents[parserFunc](parserResult));
+  }
 }
 
 if (window.document.readyState === "complete") {
