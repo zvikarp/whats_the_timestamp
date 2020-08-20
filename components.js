@@ -10,32 +10,37 @@ function bannerComponent() {
   return banner;
 }
 
-function resultComponent() {
+function baseResultComponent(childrenComponents) {
   const result = document.createElement("div");
   Object.assign(result.style, { padding: "24px 12px" });
+  childrenComponents.forEach((child) => {
+    result.appendChild(child);
+  });
+  return result;
+}
 
-  const header = document.createElement("div");
-  header.innerHTML = "The corrent timestamp in millisecounds:";
-  Object.assign(header.style, {
+function pComponent(text) {
+  const p = document.createElement("div");
+  p.innerHTML = text;
+  Object.assign(p.style, {
     fontSize: "14px",
     color: "#70757A",
     paddingBottom: "6px",
   });
+  return p;
+}
 
-  const timestamp = document.createElement("div");
-  const now = Date.now();
-  timestamp.innerHTML = now.toString();
-  Object.assign(timestamp.style, {
+function h1Component(text) {
+  const h1 = document.createElement("div");
+  h1.innerHTML = text;
+  Object.assign(h1.style, {
     fontSize: "32px",
     color: "#222",
   });
-
-  result.appendChild(header);
-  result.appendChild(timestamp);
-  return result;
+  return h1;
 }
 
-function converterComponent() {
+function converterComponent(resultComponent) {
   const converter = document.createElement("div");
   Object.assign(converter.style, {
     width: "652px",
@@ -43,7 +48,27 @@ function converterComponent() {
     borderRadius: "8px",
     border: "1px solid #dfe1e5",
   });
-  converter.appendChild(resultComponent());
+  converter.appendChild(resultComponent);
   converter.appendChild(bannerComponent());
   return converter;
+}
+
+function renderTimestampComponent() {
+  const now = Date.now();
+
+  const resultComponent = baseResultComponent([
+    pComponent("The corrent timestamp in millisecounds:"),
+    h1Component(now.toString()),
+  ]);
+  return converterComponent(resultComponent);
+}
+
+function renderDatetimeComponent() {
+  const now = Date();
+
+  const resultComponent = baseResultComponent([
+    pComponent("The corrent dateTime is:"),
+    h1Component(now.toString()),
+  ]);
+  return converterComponent(resultComponent);
 }
