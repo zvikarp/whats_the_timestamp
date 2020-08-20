@@ -6,7 +6,7 @@
   "content_scripts": [
     {
       "matches": ["*://www.google.com/search*"],
-      "js": ["main.js"]
+      "js": ["main.js", "components.js"]
     }
   ]
 }
