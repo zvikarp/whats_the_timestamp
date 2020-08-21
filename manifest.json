@@ -9,6 +9,7 @@
       "matches": ["*://www.google.com/search*"],
       "js": [
         "lib/validation.js",
+        "lib/algorithms/levenshtein.js",
         "lib/clipboard.js",
         "lib/components.js",
         "lib/parseSearch.js",
