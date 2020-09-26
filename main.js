@@ -1,9 +1,3 @@
-const searchTextComponents = {
-  timestamp_now: renderTimestampComponent,
-  dateTime_now: renderDatetimeComponent,
-  convert_timestamp: renderDatetimeComponent,
-};
-
 function injectComponent(component) {
   const searchRes =
     document.getElementById("rso") || document.getElementById("res");
@@ -17,9 +11,9 @@ function getSearch() {
 }
 
 function run() {
-  const { parserFunc, parserResult } = getSearch() || {};
-  if (parserFunc) {
-    injectComponent(searchTextComponents[parserFunc](parserResult));
+  const { func, text, args } = getSearch() || {};
+  if (func) {
+    injectComponent(func(text, args));
   }
 }
 
