@@ -13,6 +13,7 @@
     {
       "matches": ["*://www.google.com/search*"],
       "js": [
+        "lib/algorithms/sugar-custom.js",
         "lib/validation.js",
         "lib/formattors.js",
         "lib/algorithms/levenshtein.js",
