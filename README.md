@@ -17,4 +17,10 @@
 ## 🤖 usage
 
 - install the extention from [https://chrome.google.com/webstore/detail/whats-the-timestamp/ajojjmdhhcfbghldegoknfdpjacejkkm](https://chrome.google.com/webstore/detail/whats-the-timestamp/ajojjmdhhcfbghldegoknfdpjacejkkm)
-- search in google `timestamp`, `timestamp in three minutes`, `timestamp two days ago`, `date now`, `convert 1234 to date`, and other timestamp/date questions. 
+- search in google `timestamp`, `timestamp in three minutes`, `timestamp two days ago`, `date now`, `convert 1234 to date`, and other timestamp/date questions.
+
+## ✅ todos
+
+- [ ] support local dates, not only UTC.
+- [ ] make it responsive.
+- [ ] a11y.
