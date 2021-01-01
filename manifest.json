@@ -1,6 +1,6 @@
 {
   "name": "what's the timestamp",
-  "version": "0.2",
+  "version": "0.3",
   "description": "timestamp <-> datetime converter in your search results",
   "manifest_version": 2,
   "permissions": ["clipboardWrite"],
